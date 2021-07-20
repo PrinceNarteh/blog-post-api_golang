@@ -1,13 +1,16 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/PrinceNarteh/blog-post-api_golang/routers"
+	"github.com/gofiber/fiber/v2"
+)
 
 func main() {
+	// initializing fiber app
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
+	// setting up routes
+	routers.PostsRoute(app)
 
 	app.Listen(":4000")
 }
